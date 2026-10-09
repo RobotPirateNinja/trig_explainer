@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sine, Cosine &amp; Tangent</title>
+    <meta name="description" content="Drag a triangle, ride a circle, and see how sine, cosine and tangent work together. Every word explained." />
+    <meta name="theme-color" content="#ff8a3d" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="Trig Explainer" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Social link previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Explainers for Titus" />
+    <meta property="og:title" content="Sine, Cosine &amp; Tangent" />
+    <meta property="og:description" content="Drag a triangle, ride a circle, and see how the three trig ratios work together. Every word explained." />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Sine, Cosine and Tangent: a colourful right triangle with its sides labelled" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sine, Cosine &amp; Tangent" />
+    <meta name="twitter:description" content="Drag a triangle, ride a circle, and see how the three trig ratios work together." />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/og-image.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="kicker">Explainers for Titus</p>
+        <h1><span class="c-sin">Sine</span>, <span class="c-cos">Cosine</span> &amp; <span class="c-tan">Tangent</span></h1>
+        <p class="lead" data-linkify>
+          {{trigonometry|Trigonometry}} sounds enormous, but it starts with one simple question:
+          if you know an {{angle}} in a {{right-triangle}}, what can you say about its sides?
+        </p>
+        <div class="tip-banner" data-linkify>
+          <b>Word detective tip:</b> any word with a dotted underline, like {{hypotenuse}},
+          can be tapped or hovered to find out what it means. Words inside the bubbles work too!
+        </div>
+      </header>
+
+      <!-- 1. The triangle and the three ratios -->
+      <section class="section" id="triangle">
+        <h2><span class="step">1</span> Meet the right triangle</h2>
+        <p data-linkify>
+          Every {{right-triangle}} has one perfect square corner. We pick one of the other corners to look from,
+          and call its angle {{theta|θ}}. Then each side gets a name, depending on where it sits compared with θ:
+        </p>
+        <ul class="side-names" data-linkify>
+          <li><span class="swatch sw-hyp"></span>The {{hypotenuse}}: the longest, slanted side, across from the square corner.</li>
+          <li><span class="swatch sw-sin"></span>The {{opposite}}: straight across from θ. It never touches θ.</li>
+          <li><span class="swatch sw-cos"></span>The {{adjacent}}: right next to θ, lying along the bottom.</li>
+        </ul>
+
+        <div class="lab">
+          <div class="diagram-card">
+            <svg id="tri-svg" class="diagram" role="img" aria-label="A right triangle you can drag"></svg>
+            <div class="controls">
+              <div class="control-row">
+                <label for="tri-angle" data-linkify>{{theta|Angle θ}}</label>
+                <input id="tri-angle" type="range" min="5" max="85" step="1" />
+                <output class="big-out" id="tri-angle-out"></output>
+              </div>
+              <div class="control-row">
+                <label for="tri-size" data-linkify>{{hypotenuse|Size}}</label>
+                <input id="tri-size" type="range" min="3" max="10" step="0.1" />
+                <output class="big-out" id="tri-size-out"></output>
+              </div>
+            </div>
+          </div>
+
+          <div class="ratio-stack">
+            <p class="ratio-intro" data-linkify>
+              Sine, cosine and tangent are three {{ratio|ratios}}: each one divides one side by another.
+            </p>
+            <div class="ratio-card rc-sin">
+              <div class="ratio-top"><span class="ratio-name" data-linkify>{{sine|Sine}}</span><span class="ratio-value" id="v-sin"></span></div>
+              <div class="ratio-sum" id="s-sin"></div>
+              <div class="meter"><span id="m-sin"></span></div>
+              <p class="ratio-means">How <b>tall</b> it is, compared with the slanted side.</p>
+            </div>
+            <div class="ratio-card rc-cos">
+              <div class="ratio-top"><span class="ratio-name" data-linkify>{{cosine|Cosine}}</span><span class="ratio-value" id="v-cos"></span></div>
+              <div class="ratio-sum" id="s-cos"></div>
+              <div class="meter"><span id="m-cos"></span></div>
+              <p class="ratio-means">How <b>wide</b> it is, compared with the slanted side.</p>
+            </div>
+            <div class="ratio-card rc-tan">
+              <div class="ratio-top"><span class="ratio-name" data-linkify>{{tangent|Tangent}}</span><span class="ratio-value" id="v-tan"></span></div>
+              <div class="ratio-sum" id="s-tan"></div>
+              <p class="ratio-means" data-linkify>How <b>steep</b> it is: {{steepness|up}} for every 1 step across.</p>
+            </div>
+            <p class="same-flash" id="same-flash" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="callouts">
+          <div class="callout" data-linkify>
+            <h3>Remember it with SOH CAH TOA</h3>
+            <p class="soh"><b>S</b>=<b>O</b>/<b>H</b> &nbsp; <b>C</b>=<b>A</b>/<b>H</b> &nbsp; <b>T</b>=<b>O</b>/<b>A</b></p>
+            <p>Say {{soh-cah-toa|SOH CAH TOA}} out loud a few times. It sounds silly, which is exactly why it sticks.</p>
+          </div>
+          <div class="callout" data-linkify>
+            <h3>The big secret</h3>
+            <p>Move only the <b>size</b> slider. The sides grow and shrink, but sine, cosine and tangent don’t change at all!
+            Every triangle with the same angles is the same shape ({{similar|similar triangles}}), so the ratios depend only on the angle.
+            That’s what makes them so useful: know the angle, and you know the shape.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. The circle and the wave -->
+      <section class="section" id="circle">
+        <h2><span class="step">2</span> Riding the circle</h2>
+        <p data-linkify>
+          Picture a Ferris wheel with a {{radius}} of exactly 1. That’s called the {{unit-circle}}.
+          As your seat goes round, the angle θ grows from 0° all the way to 360°. Your seat, the middle of the wheel,
+          and the point straight below (or above) you always make a right triangle, and its hypotenuse is the radius: 1.
+        </p>
+        <p data-linkify>
+          Dividing by 1 changes nothing, so on this wheel <span class="c-sin"><b>sine is simply your height</b></span> above the middle,
+          and <span class="c-cos"><b>cosine is how far you are to the side</b></span>. Drop below the middle and sine goes {{negative|negative}};
+          swing to the left and cosine goes negative.
+        </p>
+
+        <div class="diagram-card wide">
+          <svg id="circle-svg" class="diagram" role="img" aria-label="The unit circle drawing a sine wave"></svg>
+          <div class="controls">
+            <div class="control-row">
+              <button class="play" id="circle-play" type="button">▶ Ride</button>
+              <input id="circle-angle" type="range" min="0" max="359" step="1" aria-label="Angle around the circle" />
+              <output class="big-out" id="circle-angle-out"></output>
+            </div>
+            <div class="readouts">
+              <span class="pill pill-sin" data-term="sine">sin = <b id="c-sin"></b></span>
+              <span class="pill pill-cos" data-term="cosine">cos = <b id="c-cos"></b></span>
+              <span class="pill pill-tan" data-term="tangent">tan = <b id="c-tan"></b></span>
+            </div>
+            <div class="toggles">
+              <label><input type="checkbox" id="show-cos" /> Show the cosine wave too</label>
+              <label><input type="checkbox" id="show-tan" /> Show the tangent line</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="callouts">
+          <div class="callout" data-linkify>
+            <h3>Why a wave?</h3>
+            <p>As you ride round, your height goes up, down, up, down, smoothly, forever. Draw your height as you go
+              and you get a {{wave}}. The cosine wave is exactly the same shape, just starting a quarter-turn earlier.</p>
+          </div>
+          <div class="callout" data-linkify>
+            <h3>Why is it called "tangent"?</h3>
+            <p>Tick "Show the tangent line". The green upright line just touches the wheel: it’s a {{tangent-line}}.
+              Stretch your seat’s spoke until it hits that line, and the length of green is the tangent. Near 90° the spoke
+              is almost parallel to the line, so tangent gets enormous!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. How they relate -->
+      <section class="section" id="relations">
+        <h2><span class="step">3</span> How they’re connected</h2>
+        <p data-linkify>Sine, cosine and tangent aren’t three separate things. They’re a team, and they always follow these rules.</p>
+        <div id="relations-root"></div>
+      </section>
+
+      <!-- 4. Missions -->
+      <section class="section" id="missions">
+        <h2><span class="step">4</span> Missions</h2>
+        <p>Use the triangle and the circle above to complete each mission. They tick themselves off when you get there.</p>
+        <ol class="mission-list" id="mission-list"></ol>
+        <p class="mission-score" id="mission-score"></p>
+      </section>
+
+      <!-- 5. Word bank -->
+      <section class="section" id="words">
+        <h2><span class="step">5</span> Word bank</h2>
+        <p>Every word from this page, all in one place.</p>
+        <div class="word-grid" id="word-bank"></div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

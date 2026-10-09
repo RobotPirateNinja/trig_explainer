@@ -1,0 +1,162 @@
+// Every word this explainer uses, in kid-friendly language.
+import { defineTerms } from './shared/glossary.js';
+
+defineTerms({
+  trigonometry: {
+    word: 'Trigonometry',
+    say: 'trig-oh-NOM-uh-tree',
+    short: 'trig',
+    def: 'The part of maths about {{triangle|triangles}}: how their {{angle|angles}} and side lengths are connected. Sine, cosine and tangent are its three most famous tools.',
+    example: 'Builders, game designers and astronomers use trig to work out distances they can’t measure with a ruler.',
+    origin: 'Greek: <i>trigōnon</i> means "triangle" and <i>metron</i> means "measure". So it’s "triangle measuring".',
+  },
+  triangle: {
+    word: 'Triangle',
+    def: 'A flat shape with 3 straight sides and 3 corners. The three {{angle|angles}} inside always add up to 180{{degree|°}}.',
+    origin: 'Latin: <i>tri</i> means "three" and <i>angulus</i> means "corner".',
+  },
+  'right-triangle': {
+    word: 'Right triangle',
+    def: 'A {{triangle}} with one {{right-angle}} (a perfect square corner). Sine, cosine and tangent are all about right triangles.',
+    example: 'Lean a ladder against a wall: the ladder, the wall and the ground make a right triangle.',
+  },
+  angle: {
+    word: 'Angle',
+    def: 'How much something turns, or how wide the opening is where two lines meet. We measure angles in {{degree|degrees}}.',
+    example: 'A door opened just a crack has a small angle. A door opened all the way has a big one.',
+    origin: 'Latin <i>angulus</i>, meaning "corner".',
+  },
+  degree: {
+    word: 'Degree',
+    short: '°',
+    def: 'A tiny slice of a turn. One full turn all the way around is 360 degrees, so a degree is 1/360 of a turn. We write it with a little circle: 30°.',
+    example: 'A quarter turn is 90°. A half turn (turning to face backwards) is 180°.',
+  },
+  'right-angle': {
+    word: 'Right angle',
+    short: '90°',
+    def: 'An {{angle}} of exactly 90{{degree|°}}: a perfect square corner, like the corner of a book. In diagrams we mark it with a little square.',
+    origin: '"Right" here means "upright" or "correct", not the opposite of left.',
+  },
+  theta: {
+    word: 'Theta',
+    say: 'THAY-tuh',
+    short: 'θ',
+    def: 'A letter from the Greek alphabet. Mathematicians use it as a name for the {{angle}} they’re looking at, the same way you might use <b>x</b> for a mystery number.',
+  },
+  hypotenuse: {
+    word: 'Hypotenuse',
+    say: 'hy-POT-en-yoos',
+    short: 'hyp',
+    def: 'The longest side of a {{right-triangle}}. It’s the slanted side, straight across from the {{right-angle}}.',
+    example: 'In the ladder picture, the ladder itself is the hypotenuse.',
+    origin: 'Greek <i>hypoteinousa</i>, meaning "stretching under", because it stretches across underneath the right angle.',
+  },
+  opposite: {
+    word: 'Opposite side',
+    short: 'opp',
+    def: 'The side straight across from the {{angle}} {{theta|θ}}. It doesn’t touch θ at all.',
+    example: 'If θ is where the ladder meets the ground, the opposite side is the wall: how high the ladder reaches.',
+  },
+  adjacent: {
+    word: 'Adjacent side',
+    say: 'uh-JAY-sent',
+    short: 'adj',
+    def: 'The side right next to the angle {{theta|θ}} that isn’t the {{hypotenuse}}. It touches θ.',
+    example: 'In the ladder picture, it’s the ground between the wall and the foot of the ladder.',
+    origin: 'Latin <i>adjacere</i>, meaning "to lie next to".',
+  },
+  ratio: {
+    word: 'Ratio',
+    say: 'RAY-shee-oh',
+    def: 'A way to compare two amounts by dividing one by the other. It tells you "how many times as big" one thing is compared with another.',
+    example: 'If one side is 3 long and another is 6 long, the ratio 3 ÷ 6 = 0.5, so the first is half as long.',
+    origin: 'Latin <i>ratio</i>, meaning "reckoning" or "working out".',
+  },
+  sine: {
+    word: 'Sine',
+    say: 'like "sign"',
+    short: 'sin',
+    def: 'In a {{right-triangle}}: sine = {{opposite}} ÷ {{hypotenuse}}. It tells you how <b>tall</b> the triangle is compared with its slanted side. On the {{unit-circle}}, sine is simply the dot’s <b>height</b>.',
+    example: 'sin 30° = 0.5, so the opposite side is exactly half as long as the hypotenuse.',
+    origin: 'From the Latin word <i>sinus</i>, meaning "a fold" or "a bay". It got that name through a translation mix-up: the much older Sanskrit word meant "bowstring".',
+  },
+  cosine: {
+    word: 'Cosine',
+    say: 'KOH-sine',
+    short: 'cos',
+    def: 'In a {{right-triangle}}: cosine = {{adjacent}} ÷ {{hypotenuse}}. It tells you how <b>wide</b> the triangle is compared with its slanted side. On the {{unit-circle}}, cosine is how far the dot is to the <b>side</b> (left or right).',
+    example: 'cos 60° = 0.5, so the adjacent side is half as long as the hypotenuse.',
+    origin: 'Short for "complement’s sine": the cosine of an angle is the sine of its {{complementary|complementary angle}}.',
+  },
+  tangent: {
+    word: 'Tangent',
+    say: 'TAN-jent',
+    short: 'tan',
+    def: 'In a {{right-triangle}}: tangent = {{opposite}} ÷ {{adjacent}}. It tells you how <b>steep</b> the slanted side is: how far up you go for every 1 step across.',
+    example: 'tan 45° = 1: one step up for every step across, like a perfect staircase.',
+    origin: 'Latin <i>tangere</i>, meaning "to touch". On the circle, tangent is measured along a {{tangent-line}} that just touches the circle.',
+  },
+  'soh-cah-toa': {
+    word: 'SOH CAH TOA',
+    say: 'so-kuh-TOE-uh',
+    def: 'A silly-sounding word to help remember all three: <b>S</b>ine = <b>O</b>pposite ÷ <b>H</b>ypotenuse, <b>C</b>osine = <b>A</b>djacent ÷ <b>H</b>ypotenuse, <b>T</b>angent = <b>O</b>pposite ÷ <b>A</b>djacent.',
+  },
+  'tangent-line': {
+    word: 'Tangent line',
+    def: 'A straight line that just touches a circle at one single point, without cutting into it.',
+    example: 'A wheel resting on flat ground: the ground is a tangent line to the wheel.',
+  },
+  'unit-circle': {
+    word: 'Unit circle',
+    def: 'A circle with a {{radius}} of exactly 1. Because the radius (our {{hypotenuse}}) is 1, dividing by it changes nothing, so the {{sine}} is just the height and the {{cosine}} is just the distance across.',
+    origin: '"Unit" means "one", like a single unit.',
+  },
+  radius: {
+    word: 'Radius',
+    say: 'RAY-dee-us',
+    def: 'The distance from the centre of a circle to its edge. Every point on the edge is the same distance from the centre.',
+    origin: 'Latin for a spoke of a wheel, or a ray of light.',
+  },
+  wave: {
+    word: 'Wave',
+    def: 'A pattern that goes smoothly up and down, over and over. If you keep turning around a circle and draw the {{sine}} as you go, you get a wave.',
+    example: 'Sound, light and ocean ripples all travel as waves, which is why sine shows up all over science.',
+  },
+  negative: {
+    word: 'Negative number',
+    def: 'A number less than zero, written with a minus sign, like −0.5. On the circle, the dot gives a negative {{sine}} when it’s below the middle, and a negative {{cosine}} when it’s left of the middle.',
+    example: 'A temperature of −3° is 3 degrees colder than zero.',
+  },
+  complementary: {
+    word: 'Complementary angles',
+    def: 'Two {{angle|angles}} that add up to exactly 90{{degree|°}}. In a {{right-triangle}}, the two corners that aren’t the right angle are always complementary.',
+    example: '30° and 60° are complementary, because 30 + 60 = 90.',
+    origin: 'From "complete": each one completes the other to make a right angle.',
+  },
+  squared: {
+    word: 'Squared',
+    short: '²',
+    def: 'A number multiplied by itself. It’s called "squared" because it’s the area of a square with sides that long.',
+    example: '3 squared, written 3², is 3 × 3 = 9. And 0.5² is 0.5 × 0.5 = 0.25.',
+  },
+  pythagoras: {
+    word: 'Pythagoras’ theorem',
+    say: 'pie-THAG-or-us',
+    def: 'A famous rule about every {{right-triangle}}: {{opposite}}{{squared|²}} + {{adjacent}}{{squared|²}} = {{hypotenuse}}{{squared|²}}. The squares on the two short sides add up to the square on the long side.',
+    origin: 'Named after Pythagoras, a Greek thinker from about 2,500 years ago, though people in Babylon and India knew it even earlier.',
+  },
+  undefined: {
+    word: 'Undefined',
+    def: 'An answer that doesn’t exist. You can’t divide by zero (how many zeros fit into 1? No amount ever works!), so maths calls that answer undefined.',
+    example: 'At 90°, the {{adjacent}} side shrinks to 0, so {{tangent}} = opposite ÷ 0 is undefined.',
+  },
+  similar: {
+    word: 'Similar triangles',
+    def: 'Triangles with exactly the same shape but different sizes, like a photo and a zoomed-in copy. They have the same {{angle|angles}}, so they have the same sine, cosine and tangent.',
+  },
+  steepness: {
+    word: 'Steepness',
+    def: 'How sharply something goes up. A gentle ramp isn’t steep; a cliff is very steep. {{tangent|Tangent}} is a number for steepness.',
+  },
+});
